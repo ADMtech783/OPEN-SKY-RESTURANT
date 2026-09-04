@@ -8,15 +8,15 @@ document.getElementById('order-form').addEventListener('submit', function (e) {
   const phone = document.getElementById('phone').value;
 
   const message =
-    `New Order - Open Sky Restaurant%0A` +
-    `Type: ${fulfillment}%0A` +
-    `Dish: ${dish}%0A` +
-    `Address: ${address || 'N/A (Pickup)'}%0A` +
-    `Name: ${name}%0A` +
+    `New Order - Open Sky Restaurant\n` +
+    `Type: ${fulfillment}\n` +
+    `Dish: ${dish}\n` +
+    `Address: ${address || 'N/A (Pickup)'}\n` +
+    `Name: ${name}\n` +
     `Phone: ${phone}`;
 
   const restaurantWhatsApp = '233547259294'; // her number in international format, no + or leading 0
-  const whatsappURL = `https://wa.me/${restaurantWhatsApp}?text=${message}`;
+  const whatsappURL = `https://wa.me/${restaurantWhatsApp}?text=${encodeURIComponent(message)}`;
 
   window.open(whatsappURL, '_blank');
 });
